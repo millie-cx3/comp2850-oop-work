@@ -3,7 +3,17 @@
 fun main() {
     val numbers = listOf(1, 4, 7, 2, 9, 3, 8)
 
-    val result = numbers   // make changes here
+    // prints list
+    // val result = numbers
+
+    // prints some long jargony thing
+    // val result = numbers.asSequence()
+
+    // prints some shorter jargony thing with 'filtering' in there
+    // val result = numbers.asSequence().filter { it % 2 != 0 }
+
+    // prints odd numbers
+    val result = numbers.asSequence().filter { it % 2 != 0 }.toList()
 
     println(result)
 }

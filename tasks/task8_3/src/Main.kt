@@ -6,4 +6,11 @@ fun main() {
     //   - Find records with lowest and and highest temperatures
     //   - Compute average temperature
     //   - Display all of these statistics
+    val data = fetchData()
+    val lowest = data.minBy { it.second }
+    val highest = data.maxBy { it.second }
+    val average = data.map { it.second }.average()
+    println("Lowest temperature: ${lowest.second}")
+    println("Highest temperature: ${highest.second}")
+    println("Average temperature: $average")
 }
