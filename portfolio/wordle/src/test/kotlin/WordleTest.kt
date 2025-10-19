@@ -3,6 +3,7 @@ import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.collections.shouldBeIn
 import io.kotest.matchers.collections.shouldNotContain
+import java.io.File
 
 @Suppress("unused")
 class WordleTest : StringSpec({
@@ -17,8 +18,10 @@ class WordleTest : StringSpec({
     }
 
     "readWordList reads words from test file and returns them as a list of strings" {
-        readWordList("testWords.txt") shouldBe listOf("HELLO", "THERE", "WORLD")
-    }
+        val testFile = File("testWords.txt")
+        testFile.writeText("HELLO\nTHERE\nWORLD")
+        readWordList(testFile.absolutePath) shouldBe mutableListOf("HELLO", "THERE", "WORLD")
+    }   
 
     "pickRandomWord chooses random word and removes it from list" {
         val words = mutableListOf("HELLO", "THERE", "WORLD")

@@ -72,4 +72,5 @@ fun displayGuess(guess: String, matches: List<Int>) {
             0 -> print("${guess[i]}")
         }
     }
+    print("\n")
 }
