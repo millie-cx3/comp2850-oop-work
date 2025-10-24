@@ -2,6 +2,7 @@
 import java.time.LocalDate
 
 class Person(var name: String, val birth: LocalDate) {
+    constructor(birth: String): this(birth.toLocalDate())
     var isMarried = false
 }
 

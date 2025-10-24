@@ -1,7 +1,10 @@
 // Implement the six required functions here
+// tests for file not existing and file with invalid things
+// input has to be string
+
 import java.io.File
 
-fun isValid(word: String): Boolean = word.length == 5
+fun isValid(word: String): Boolean = (word.length == 5 && word is String)
 
 fun readWordList(filename: String): MutableList<String> = File(filename).readLines().toMutableList()
 
@@ -16,8 +19,8 @@ fun obtainGuess(attempt: Int): String {
         println("Attempt $attempt: ")
         val guess = readln()
 
-        if (guess.length != 5 || guess != guess.uppercase()) {
-            println("Guess must be 5 letters and capitalised. Please try again\n")
+        if (isValid(guess) == false) {
+            println("Guess must be a string of 5 letters and capitalised. Please try again\n")
         }
         else {
             return guess
