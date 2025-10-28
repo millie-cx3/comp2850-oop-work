@@ -11,3 +11,10 @@ class Point:
     def distanceTo(self, p):
         return hypot(self.x - p.x, self.y - p.y)
 
+x = float(input("Enter x coordinate: "))
+y = float(input("Enter y coordinate: "))
+
+p = Point(x, y)
+p2 = Point(4.5, 7.0)
+print(p.distance())
+print(p.distanceTo(p2))

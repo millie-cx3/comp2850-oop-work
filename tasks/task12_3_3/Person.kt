@@ -1,13 +1,21 @@
-// Task 12.3.2: Person class, with a secondary constructor
+// Task 12.3.3: Initialiser blocks
 import java.time.LocalDate
 
 class Person(var name: String, val birth: LocalDate) {
     constructor(name: String, birth: String): this(name, LocalDate.parse(birth))
     var isMarried = false
+
+    init {
+        require(name.isNotBlank()) { "Name cannot be blank" }
+    }
 }
 
 fun main() {
-    val person = Person("Bobby", "2000-10-28")
+    println("Enter name: ")
+    val name = readln()
+    println("Enter DoB: ")
+    val dob = readln()
+    val person = Person(name, dob)
     println("Name: ${person.name}")
     println("Birth: ${person.birth}")
     println("Married: ${person.isMarried}")
